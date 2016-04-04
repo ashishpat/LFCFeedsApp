@@ -1,0 +1,9 @@
+/bin
+/obj
+/public
+/Scripts
+LFCFeedsApp.njsproj
+LFCFeedsApp.sln
+.ntvs_analysis.dat
+/.vs
+/node_modules

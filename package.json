@@ -1,0 +1,16 @@
+{
+  "name": "LFCFeedsApp",
+  "version": "0.1",
+  "description": "LFCNodeApp",
+  "main": "app.js",
+  "author": {
+    "name": "Ashish Pathak",
+    "email": "ashish@ashishpathak.io"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "stylus": "*",
+    "xml2js": "^0.4.16"
+  }
+}
