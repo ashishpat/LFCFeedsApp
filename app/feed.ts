@@ -79,12 +79,12 @@ export namespace LFCFeedsApp {
 
             public stripHTML(data: string): string {
                 var content = data.replace(/<[\/]?([^> ]+)[^>]*>/g, '');
-                content = content.relace('&mdash;', ' - ');
                 content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/ig, '');
                 content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/ig, '');
                 content = content.replace(/<!--[\s\S]*?-->/g, '');
                 content = content.replace('&nbsp;', ' ');
                 content = content.replace('&amp;', '&');
+                content = content.replace('&mdash;', ' - ');
                 return content;
             }
 
