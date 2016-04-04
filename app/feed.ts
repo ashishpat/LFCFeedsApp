@@ -82,8 +82,8 @@ export namespace LFCFeedsApp {
                 content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/ig, '');
                 content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/ig, '');
                 content = content.replace(/<!--[\s\S]*?-->/g, '');
-                content = content.replace('&nbsp;', ' ');
-                content = content.replace('&amp;', '&');
+                content = content.replace(/&nbsp;/, ' ');
+                content = content.replace(/&amp;/, '&');
                 content = content.replace(/&mdash;/g, ' - ');
                 return content;
             }
