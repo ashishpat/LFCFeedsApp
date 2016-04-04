@@ -20,7 +20,7 @@ if ('development' == app.get('env')) {
 var url = "http://bleacherreport.com/articles/feed?tag_id=215";
 app.get('/lfcfeeds', function (req, res) {
     var App = new Feeds.LFCFeedsApp.Feed.Main(url, res);
-    App.parse(App.feedUrl);
+    //App.parse(App.feedUrl);
 });
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
