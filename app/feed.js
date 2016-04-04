@@ -42,9 +42,10 @@ var LFCFeedsApp;
                 var self = this;
                 var newsList = Array();
                 data['rss']['channel'][0]['item'].forEach(function (item) {
+                    var description = self.stripHTML(item.description[0]);
                     var newsItem = {
                         Title: item.title,
-                        Text: item.description[0],
+                        Text: description,
                         Breaking: false,
                         Transfer: false,
                         Category: Array()
@@ -63,6 +64,15 @@ var LFCFeedsApp;
                 });
                 this.response.type('xml');
                 this.response.render('rss', { newsItems: newsList });
+            };
+            Main.prototype.stripHTML = function (data) {
+                var content = data.replace(/<[\/]?([^> ]+)[^>]*>/g, '');
+                content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/ig, '');
+                content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/ig, '');
+                content = content.replace(/<!--[\s\S]*?-->/g, '');
+                content = content.replace('&nbsp;', ' ');
+                content = content.replace('&amp;', '&');
+                return content;
             };
             return Main;
         })();

@@ -1,6 +1,6 @@
 {
   "name": "LFCFeedsApp",
-  "version": "0.1",
+  "version": "0.0.1",
   "description": "LFCNodeApp",
   "main": "app.js",
   "author": {
@@ -11,6 +11,7 @@
     "express": "3.4.4",
     "jade": "*",
     "stylus": "*",
-    "xml2js": "^0.4.16"
+    "xml2js": "^0.4.16",
+    "cheerio": "^0.20.0"
   }
 }

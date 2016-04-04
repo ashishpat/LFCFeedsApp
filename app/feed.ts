@@ -1,4 +1,5 @@
-﻿import express = require('express');
+﻿/// <reference path="../Scripts/typings/cheerio/cheerio.d.ts" />
+import express = require('express');
 import http = require('http');
 
 export namespace LFCFeedsApp {
@@ -47,11 +48,14 @@ export namespace LFCFeedsApp {
             private cleanData(data: any): void {
                 var self = this;
                 let newsList: Array<News> = Array();
-
+                
                 data['rss']['channel'][0]['item'].forEach(function (item: BleacherItem) {
+                    
+                    var description = self.stripHTML(item.description[0]);
+
                     var newsItem: News = {
                         Title: item.title,
-                        Text: item.description[0],
+                        Text: description,
                         Breaking: false,
                         Transfer: false,
                         Category: Array()
@@ -71,6 +75,16 @@ export namespace LFCFeedsApp {
                 });
                 this.response.type('xml');
                 this.response.render('rss', { newsItems: newsList});
+            }
+
+            public stripHTML(data: string): string {
+                var content = data.replace(/<[\/]?([^> ]+)[^>]*>/g, '');
+                content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/ig, '');
+                content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/ig, '');
+                content = content.replace(/<!--[\s\S]*?-->/g, '');
+                content = content.replace('&nbsp;', ' ');
+                content = content.replace('&amp;', '&');
+                return content;
             }
 
         }
