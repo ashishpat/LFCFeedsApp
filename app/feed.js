@@ -67,6 +67,7 @@ var LFCFeedsApp;
             };
             Main.prototype.stripHTML = function (data) {
                 var content = data.replace(/<[\/]?([^> ]+)[^>]*>/g, '');
+                content = content.relace('&mdash;', ' - ');
                 content = content.replace(/<style[^>]*>[\s\S]*?<\/style>/ig, '');
                 content = content.replace(/<script[^>]*>[\s\S]*?<\/script>/ig, '');
                 content = content.replace(/<!--[\s\S]*?-->/g, '');
