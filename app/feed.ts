@@ -84,7 +84,7 @@ export namespace LFCFeedsApp {
                 content = content.replace(/<!--[\s\S]*?-->/g, '');
                 content = content.replace('&nbsp;', ' ');
                 content = content.replace('&amp;', '&');
-                content = content.replace('&mdash;', ' - ');
+                content = content.replace(/&mdash;/g, ' - ');
                 return content;
             }
 
