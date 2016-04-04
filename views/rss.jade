@@ -5,7 +5,7 @@ rss( version="2.0", xmlns:content="http://ashdown-api.azurewebsites.net/lfcfeeds
         each News, i in newsItems
             item 
                 title= News.Title
-                description= News.Text
+                description!= News.Text
                 if News.Breaking
                     breaking Breaking News
                 if News.Transfer
