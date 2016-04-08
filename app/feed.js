@@ -54,11 +54,14 @@ var LFCFeedsApp;
                         switch (categoryItem) {
                             case 'Breaking News':
                                 newsItem.Breaking = true;
+                                break;
                             case 'Transfer News':
                                 newsItem.Transfer = true;
+                                break;
                             default:
-                                newsItem.Category.push(categoryItem);
+                                break;
                         }
+                        newsItem.Category.push(categoryItem);
                     });
                     newsList.push(newsItem);
                 });
