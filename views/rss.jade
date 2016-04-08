@@ -7,7 +7,11 @@ rss( version="2.0", xmlns:content="http://ashdown-api.azurewebsites.net/lfcfeeds
                 title= News.Title
                 description= News.Text
                 if News.Breaking
-                    breaking Breaking News
+                    breaking True
+                else
+                    breaking False
                 if News.Transfer
-                    transfer Transfer News
+                    transfer True
+                else 
+                    breaking False
                 
